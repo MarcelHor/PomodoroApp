@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>My pomodoro app</title>
     <link rel="stylesheet" href="style.css">
+    <script src="apiny.js"></script>
+
 </head>
 <body>
 <div class="menu">
@@ -12,21 +14,34 @@
 
 <div class="mainContainer">
     <div class="pomodoroContainer">
-        <div class>
-            <button id="pomodoroSession" value="45">POMODORO</button>
+        <div>
+            <button id="pomodoroSession">POMODORO</button>
             <button id="breakSession">BREAK</button>
         </div>
         <div class="timer">
             <span id="timerText">00:00</span>
         </div>
-        <div class>
+        <div>
             <button id="start">START</button>
             <button id="clear">CLEAR</button>
         </div>
+        <div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="60" value="45" class="slider" id="pomodoroTimeSlider">
+                <span id="pomodoroTimeSliderValue"></span>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="60" value="15" class="slider" id="breakTimeSlider">
+                <span id="pomodoroBreakSliderValue"></span>
+            </div>
+        </div>
     </div>
 
-    <div class="ToDoContainer">
-
+    <div class="music">
+        <div>
+            Play some lo-fi music for better learning
+        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
 

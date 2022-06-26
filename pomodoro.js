@@ -9,6 +9,23 @@ let time = 2700;
 let timeValue = time;
 let timeInterval;
 let isCounting = false;
+let sliderPomodoro = document.getElementById("pomodoroTimeSlider");
+let outputPomodoro = document.getElementById("pomodoroTimeSliderValue");
+let sliderBreak = document.getElementById("breakTimeSlider");
+let outputBreak = document.getElementById("pomodoroBreakSliderValue");
+
+outputPomodoro.innerHTML = sliderPomodoro.value; // Display the default slider value
+// Update the current slider value (each time you drag the slider handle)
+sliderPomodoro.oninput = function() {
+    outputPomodoro.innerHTML = this.value;
+}
+
+outputBreak.innerHTML = sliderBreak.value; // Display the default slider value
+// Update the current slider value (each time you drag the slider handle)
+sliderBreak.oninput = function() {
+    outputBreak.innerHTML = this.value;
+}
+
 
 startButton.addEventListener("click",startCountDown,false);
 clearButton.addEventListener("click",clearCountDown,false);
@@ -16,7 +33,7 @@ pomodoroTime.addEventListener("click",setPomodoroTime,false);
 breakTime.addEventListener("click",setPomodoroTime2,false);
 
 function setPomodoroTime(){
-    time = 2700;
+    time = sliderPomodoro.value*60;
     timeValue = time;
     clearInterval(timeInterval);
     timerText.textContent = "00:00"
@@ -24,7 +41,7 @@ function setPomodoroTime(){
     isCounting = false;
 }
 function setPomodoroTime2(){
-    time = 900;
+    time = sliderBreak.value*60;
     timeValue = time;
     clearInterval(timeInterval);
     timerText.textContent = "00:00"
@@ -66,3 +83,4 @@ function countdown() {
         clearInterval(timeInterval);
     }
 }
+
