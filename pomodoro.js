@@ -1,19 +1,24 @@
-//Document
-const startButton =  document.getElementById("start");
-const clearButton =  document.getElementById("clear");
-const timerText = document.getElementById("timerText");
-const pomodoroTime = document.getElementById("pomodoroSession");
-const breakTime = document.getElementById("breakSession");
-//Variables
+//DOCUMENT
+const startButton =  document.querySelector("#start");
+const clearButton =  document.querySelector("#clear");
+const timerText = document.querySelector("#timerText");
+const pomodoroTime = document.querySelector("#pomodoroSession");
+const breakTime = document.querySelector("#breakSession");
+const sliderPomodoro = document.querySelector("#pomodoroTimeSlider");
+const outputPomodoro = document.querySelector("#pomodoroTimeSliderValue");
+const sliderBreak = document.querySelector("#breakTimeSlider");
+const outputBreak = document.querySelector("#pomodoroBreakSliderValue");
+const buttons = document.querySelectorAll("button");
+let clickSound = new Audio('mouse-click.wav');
+clickSound.volume = 0.3;
+//VARIABLES
 let time = 2700;
 let timeValue = time;
 let timeInterval;
 let isCounting = false;
-let sliderPomodoro = document.getElementById("pomodoroTimeSlider");
-let outputPomodoro = document.getElementById("pomodoroTimeSliderValue");
-let sliderBreak = document.getElementById("breakTimeSlider");
-let outputBreak = document.getElementById("pomodoroBreakSliderValue");
+console.log(buttons);
 
+//SLIDERS
 outputPomodoro.innerHTML = sliderPomodoro.value; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 sliderPomodoro.oninput = function() {
@@ -26,13 +31,21 @@ sliderBreak.oninput = function() {
     outputBreak.innerHTML = this.value;
 }
 
-
+//LISTENERS
 startButton.addEventListener("click",startCountDown,false);
 clearButton.addEventListener("click",clearCountDown,false);
 pomodoroTime.addEventListener("click",setPomodoroTime,false);
 breakTime.addEventListener("click",setPomodoroTime2,false);
+for(const button of buttons){
+    button.addEventListener("click",playSound,false);
+}
 
+function playSound(){
+    clickSound.play();
+}
 function setPomodoroTime(){
+    document.body.style.background = "#f06865";
+    document.body.style.setProperty("--itemColor", "#F08080")
     time = sliderPomodoro.value*60;
     timeValue = time;
     clearInterval(timeInterval);
@@ -41,6 +54,9 @@ function setPomodoroTime(){
     isCounting = false;
 }
 function setPomodoroTime2(){
+    document.body.style.background = "#3A78F0";
+    document.body.style.setProperty("--itemColor", "#4F9FF0")
+
     time = sliderBreak.value*60;
     timeValue = time;
     clearInterval(timeInterval);
