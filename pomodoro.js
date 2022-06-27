@@ -42,6 +42,7 @@ for(const button of buttons){
 }
 
 function playSound(){
+    clickSound.load();
     clickSound.play();
 }
 function setPomodoroTime(){
