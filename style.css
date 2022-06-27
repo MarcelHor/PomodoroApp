@@ -1,19 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Arial, serif;
+}
 body{
     --backgroundColor: #f06865;
     --itemColor: #F08080;
     background-color: var(--backgroundColor);
-    color: white;
-    font-family: Arial, serif;
     var(-itemColor);
 }
-.menu{
+header{
     text-align: center;
     padding: 25px;
 }
-
+p{
+    margin: 15px;
+}
 .pomodoroContainer{
     text-align: center;
-
 }
 .timer{
     margin: 12px auto;
@@ -94,4 +99,16 @@ button:hover{
     text-align: center;
 }
 
-
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px ;
+    font-size: 14px;
+    background-color: #4a4a4a;
+}
+footer>p>a{
+    text-decoration: none;
+}
+footer>p>a:hover{
+    text-decoration: underline;
+}

@@ -6,12 +6,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="menu">
-    <h1>Pomodoro app</h1>
-</div>
+
+<header>
+        <h1>Pomodoro app</h1>
+</header>
+
 
 <div class="mainContainer">
     <div class="pomodoroContainer">
+        <div>
+           <p>The Pomodoro Technique is a time management method.
+            It uses a timer to break work into intervals, separated by short breaks.</p>
+        </div>
+
         <div>
             <button id="pomodoroSession">POMODORO</button>
             <button id="breakSession">BREAK</button>
@@ -37,11 +44,16 @@
 
     <div class="music">
         <div>
-            Play some lo-fi music for better learning
+           <p>Play some lo-fi music for better learning</p>
         </div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
+
+<footer>
+        <p>Author: Marcel Horváth, 2022</p>
+        <p><a href="https://github.com/MarcelHor">My github</a></p>
+</footer>
 
 <script src="pomodoro.js"></script>
 </body>
