@@ -12,8 +12,16 @@ body{
 }
 header{
     text-align: center;
-    padding: 25px;
+    padding: 10px;
 }
+hr {
+    border:none;
+    background-color:#fff;
+    height:1px;
+    width: 50%;
+    margin: 10px auto 0;
+}
+
 p{
     margin: 15px;
 }
@@ -34,37 +42,37 @@ p{
     background-color: var(--itemColor);
 
 }
-#start{
-
-}
 
 button{
     background-color:var(--itemColor); /* Green */
     border: none;
     color: white;
     padding: 15px 20px;
+    margin: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
+    border-radius: 10px;
+
 }
 
 button:hover{
     opacity: 0.7;
 }
 
-
-
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
+.slidersContainer{
+    background-color: var(--itemColor);
+    padding: 8px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
-
 /* The slider itself */
 .slider {
     margin: 10px;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 25%; /* Full-width */
+    width: 30%; /* Full-width */
     height: 25px; /* Specified height */
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
@@ -84,7 +92,7 @@ button:hover{
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: var(--itemColor); /* Green background */
+    background: var(--backgroundColor); /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
 
@@ -94,6 +102,12 @@ button:hover{
     cursor: pointer; /* Cursor on hover */
 }
 
+label{
+    display: inline-block;
+    width: 15%;
+    font-size: 15px;
+}
+
 .music{
     margin: 20px;
     text-align: center;
@@ -101,7 +115,7 @@ button:hover{
 
 footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0 15px ;
     font-size: 14px;
     background-color: #4a4a4a;

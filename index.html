@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>My pomodoro app</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
+<div class="Container">
+    <header>
         <h1>Pomodoro app</h1>
-</header>
+        <hr>
+    </header>
 
-
-<div class="mainContainer">
     <div class="pomodoroContainer">
         <div>
-           <p>The Pomodoro Technique is a time management method.
+           <p>The Pomodoro Technique is a time management method. <br>
             It uses a timer to break work into intervals, separated by short breaks.</p>
         </div>
 
@@ -29,14 +29,18 @@
         <div>
             <button id="start">START</button>
             <button id="clear">CLEAR</button>
+            <div>
+                <button id="settings">SETTINGS</button>
+            </div>
         </div>
-        <div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="60" value="45" class="slider" id="pomodoroTimeSlider">
+
+        <div class="slidersContainer" style="display: none">
+            <div class="sliderContainer">
+                <label for="pomodoroTimeSlider">Pomodoro time </label><input type="range" min="1" max="60" value="45" class="slider" id="pomodoroTimeSlider">
                 <span id="pomodoroTimeSliderValue"></span>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="60" value="15" class="slider" id="breakTimeSlider">
+            <div class="sliderContainer">
+                <label for="breakTimeSlider">Break time</label><input type="range" min="1" max="60" value="15" class="slider" id="breakTimeSlider">
                 <span id="pomodoroBreakSliderValue"></span>
             </div>
         </div>
@@ -48,12 +52,13 @@
         </div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-</div>
 
-<footer>
+    <footer>
         <p>Author: Marcel Horváth, 2022</p>
         <p><a href="https://github.com/MarcelHor">My github</a></p>
-</footer>
+        <p><a href="https://buymeacoffee.com/marhorv22F">Buy me coffee</a></p>
+    </footer>
+</div>
 
 <script src="pomodoro.js"></script>
 </body>

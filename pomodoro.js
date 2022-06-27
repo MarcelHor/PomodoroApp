@@ -9,7 +9,8 @@ const outputPomodoro = document.querySelector("#pomodoroTimeSliderValue");
 const sliderBreak = document.querySelector("#breakTimeSlider");
 const outputBreak = document.querySelector("#pomodoroBreakSliderValue");
 const buttons = document.querySelectorAll("button");
-let clickSound = new Audio('mouse-click.wav');
+const clickSound = new Audio("mouse-click.wav");
+const alarmSound = new Audio("alarm.wav")
 clickSound.volume = 0.3;
 //VARIABLES
 let time = 2700;
@@ -96,7 +97,17 @@ function countdown() {
     timeValue--;
 
     if (timeValue < 0) {
+        alarmSound.play();
         clearInterval(timeInterval);
+    }
+}
+const settingsButton =  document.querySelector("#settings")
+settingsButton.onclick = function settingsPop() {
+    let x = document.querySelector(".slidersContainer");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
     }
 }
 
