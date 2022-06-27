@@ -45,7 +45,7 @@ function playSound(){
     clickSound.play();
 }
 function setPomodoroTime(){
-    document.body.style.background = "#f06865";
+    document.body.style.setProperty("--backgroundColor", "#f06865")
     document.body.style.setProperty("--itemColor", "#F08080")
     time = sliderPomodoro.value*60;
     timeValue = time;
@@ -55,7 +55,7 @@ function setPomodoroTime(){
     isCounting = false;
 }
 function setPomodoroTime2(){
-    document.body.style.background = "#3A78F0";
+    document.body.style.setProperty("--backgroundColor", "#3A78F0")
     document.body.style.setProperty("--itemColor", "#4F9FF0")
 
     time = sliderBreak.value*60;

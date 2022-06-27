@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My pomodoro app</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,11 +36,13 @@
 
         <div class="slidersContainer" style="display: none">
             <div class="sliderContainer">
-                <label for="pomodoroTimeSlider">Pomodoro time </label><input type="range" min="1" max="60" value="45" class="slider" id="pomodoroTimeSlider">
+                <label for="pomodoroTimeSlider">Pomodoro time </label>
+                <input type="range" min="1" max="60" value="45" class="slider" id="pomodoroTimeSlider">
                 <span id="pomodoroTimeSliderValue"></span>
             </div>
             <div class="sliderContainer">
-                <label for="breakTimeSlider">Break time</label><input type="range" min="1" max="60" value="15" class="slider" id="breakTimeSlider">
+                <label for="breakTimeSlider">Break time</label>
+                <input type="range" min="1" max="60" value="15" class="slider" id="breakTimeSlider">
                 <span id="pomodoroBreakSliderValue"></span>
             </div>
         </div>
@@ -50,7 +52,7 @@
         <div>
            <p>Play some lo-fi music for better learning</p>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="videoPlayer" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <footer>
