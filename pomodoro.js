@@ -10,6 +10,7 @@ const outputBreak = document.querySelector("#pomodoroBreakSliderValue");
 const settingsButton =  document.querySelector("#settings")
 const sliders = document.querySelector(".slidersContainer");
 const sessionsContainer = document.querySelector(".sessions");
+const buttons = document.querySelectorAll("button");
 
 const clickSound = new Audio("mouse-click.wav");
 const alarmSound = new Audio("alarm.wav")
@@ -35,10 +36,15 @@ sliderBreak.oninput = function() {
     outputBreak.innerHTML = this.value;
 }
 
-document.onclick = function playSound(){
+for(const button of buttons){
+    button.addEventListener("click",playSound,false);
+}
+
+function playSound(){
     clickSound.load();
     clickSound.play().then(r => console.log(r));
 }
+
 
 settingsButton.onclick = function settingsPop() {
     if (sliders.style.display === "none") {
