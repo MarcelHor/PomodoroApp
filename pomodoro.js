@@ -15,13 +15,15 @@ const clickSound = new Audio("mouse-click.wav");
 const alarmSound = new Audio("alarm.wav")
 clickSound.volume = 0.1;
 
-let time = 3;
+let time;
 let timeValue = time;
 let timeInterval;
 let isCounting = false;
 let isBreak = false;
 let session = 1;
 let isCreated = false;
+let started = false;
+let confirmAction;
 
 outputPomodoro.innerHTML = sliderPomodoro.value;
 sliderPomodoro.oninput = function() {
@@ -47,17 +49,26 @@ settingsButton.onclick = function settingsPop() {
 }
 
 pomodoroTime.onclick = function(){
+    clearCountDown();
     setPomodoroTime("#f06865" ,"#F08080" ,sliderPomodoro.value)
-    isBreak = false;
 }
 
 breakTime.onclick = function(){
+    clearCountDown();
     setPomodoroTime("#3A78F0", "#4F9FF0", sliderBreak.value)
-    isBreak = true;
+}
+
+clearButton.onclick = function clear(){
+    clearCountDown();
 }
 
 startButton.onclick = function startCountDown(){
-    if(!isCounting && time > 0){
+    if(!started){
+        time = sliderPomodoro.value * 60;
+        timeValue = time;
+        started = true;
+    }
+    if(!isCounting){
         timeInterval = setInterval(countdown, 1000);
         startButton.textContent = "PAUSE"
         isCounting = true;
@@ -69,24 +80,10 @@ startButton.onclick = function startCountDown(){
     }
 }
 
-clearButton.onclick = function clearCountDown(){
-    if (!isBreak){
-        setPomodoroTime("#f06865" ,"#F08080" ,sliderPomodoro.value)
-    }
-    else{
-        setPomodoroTime("#3A78F0", "#4F9FF0", sliderBreak.value)
-    }
-    while (sessionsContainer.firstChild) {
-        sessionsContainer.removeChild(sessionsContainer.lastChild);
-    }
-    session=1;
-    isCreated = false;
-}
 function countdown() {
-
     if(!isBreak && isCreated === false){
-        let time= new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        let sessionText = document.createTextNode("Session "+ session+".  Started at:" + time)
+        let sessionTime= new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        let sessionText = document.createTextNode("Session "+ session+".  Started at: " + sessionTime)
         sessionsContainer.appendChild(sessionText);
         sessionsContainer.appendChild(document.createElement("br"))
         isCreated=true;
@@ -123,10 +120,27 @@ function countdown() {
 function setPomodoroTime(backgroundColor,itemColor, value){
     document.body.style.setProperty("--backgroundColor", backgroundColor)
     document.body.style.setProperty("--itemColor", itemColor)
-    time = value;
+    time = value*60;
     timeValue = time;
     clearInterval(timeInterval);
     timerText.textContent = "00:00"
-    startButton.textContent = "START"
-    isCounting = false;
+}
+
+function clearCountDown(){
+    confirmAction = confirm("Are you sure to execute this action?");
+    if(confirmAction){
+        if (!isBreak){
+            setPomodoroTime("#f06865" ,"#F08080" ,sliderPomodoro.value)
+        }
+        else{
+            setPomodoroTime("#3A78F0", "#4F9FF0", sliderBreak.value)
+        }
+        while (sessionsContainer.firstChild) {
+            sessionsContainer.removeChild(sessionsContainer.lastChild);
+        }
+        session=1;
+        isCounting = false;
+        isCreated = false;
+        startButton.textContent="START"
+    }
 }
